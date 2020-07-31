@@ -2,11 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Yew • TodoMVC</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-common@1.0.5/base.css"/ >
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-app-css@2.1.2/index.css" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                default-src 'self' 'unsafe-eval' 'unsafe-inline';
+                script-src 'self' 'unsafe-eval' 'unsafe-inline';
+                img-src 'self' 'unsafe-eval' 'unsafe-inline';
+                style-src 'self' 'unsafe-inline' 'unsafe-eval';
+                connect-src 'self' 'unsafe-eval' 'unsafe-inline';
+                font-src 'self' 'unsafe-eval' 'unsafe-inline'
+            "
+        />
+        <title>All About Arthur Burke</title>
     </head>
     <body>
-        <script src="/todomvc.js"></script>
+        <script src="/cvmvc.js"></script>
     </body>
 </html>
