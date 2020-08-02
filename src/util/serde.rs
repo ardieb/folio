@@ -1,14 +1,11 @@
-pub mod date
-{
-    pub mod option
-    {
+pub mod date {
+    pub mod option {
         use chrono::NaiveDate;
-        use serde::{self, Deserialize, Serializer, Deserializer};
+        use serde::{self, Deserialize, Deserializer, Serializer};
         use serde::de::Error;
 
         pub fn serialize<S>(date: &Option<NaiveDate>, s: S) -> Result<S::Ok, S::Error>
-            where S: Serializer
-        {
+            where S: Serializer {
             if let Some(ref d) = *date {
                 return s.serialize_str(&d.format("%Y/%m/%d").to_string())
             }
@@ -16,8 +13,7 @@ pub mod date
         }
 
         pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<NaiveDate>, D::Error>
-            where D: Deserializer<'de>
-        {
+            where D: Deserializer<'de> {
             let s: Option<String> = Option::deserialize(deserializer)?;
             if let Some(s) = s {
                 return Ok(Some(NaiveDate::parse_from_str(&s, "%Y/%m/%d").map_err(serde::de::Error::custom)?))

@@ -4,12 +4,12 @@ use yew::virtual_dom::VNode;
 use yew_router::switch::{Permissive};
 use yew_router::{prelude::*, Switch};
 
-use crate::components::index::Index;
+use crate::components::about::About;
+use crate::routes::AppRoute;
 
 pub struct App {}
 
-impl Component for App
-{
+impl Component for App {
     type Message = ();
     type Properties = ();
 
@@ -19,15 +19,13 @@ impl Component for App
 
     fn change(&mut self, _: Self::Properties) -> ShouldRender { false }
 
-    fn view(&self) -> Html
-    {
+    fn view(&self) -> Html {
         info!("rendered app!");
-        html!
-        {
+        html! {
             <div id="wrapper">
                 <header id="header">
                     <h1 class="index-link">
-                        <RouterAnchor<AppRoute> route=AppRoute::Index> {"Arthur Miles Burke"} </RouterAnchor<AppRoute>>
+                        <RouterAnchor<AppRoute> route=AppRoute::About> {"Arthur Miles Burke"} </RouterAnchor<AppRoute>>
                     </h1>
                     <nav class="links">
                         <ul>
@@ -39,20 +37,16 @@ impl Component for App
                 </header>
                 <div id="main">
                     <Router<AppRoute>
-                        render = Router::render(|switch: AppRoute|
-                        {
-                            match switch
-                            {
-                                AppRoute::Index => html!{ <Index /> },
-                                AppRoute::About => html!{ <></> },
+                        render = Router::render(|switch: AppRoute| {
+                            match switch {
+                                AppRoute::About => html!{ <About /> },
                                 AppRoute::Cv => html!{ <></> },
                                 AppRoute::Projects => html!{ <></> },
                                 AppRoute::NotFound(Permissive(None)) => html!{"Page Not Found"},
                                 AppRoute::NotFound(Permissive(Some(missed))) => html!{format!("Page '{}' not found", missed)},
                             }
                         })
-                        redirect = Router::redirect(|route: Route|
-                        {
+                        redirect = Router::redirect(|route: Route| {
                             AppRoute::NotFound(Permissive(Some(route.route)))
                         })
                     />
@@ -60,19 +54,4 @@ impl Component for App
             </div>
         }
     }
-}
-
-#[derive(Debug, Switch, Clone)]
-pub enum AppRoute
-{
-    #[to = "/"]
-    Index,
-    #[to = "/about"]
-    About,
-    #[to = "/cv"]
-    Cv,
-    #[to = "/projects"]
-    Projects,
-    #[to = "/not-found"]
-    NotFound(Permissive<String>),
 }

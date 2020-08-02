@@ -1,6 +1,7 @@
 const path = require('path');
 const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const distPath = path.resolve(__dirname, "dist");
 module.exports = (env, argv) => {
@@ -26,6 +27,10 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
+        {
+          test: /\.(svg|eot|woff|woff2|ttf)$/,
+          use: ['file-loader']
+        }
       ],
     },
     plugins: [
@@ -35,7 +40,8 @@ module.exports = (env, argv) => {
       new WasmPackPlugin({
         crateDirectory: ".",
         extraArgs: "--no-typescript",
-      })
+      }),
+      new HtmlWebpackPlugin(),
     ],
     watch: argv.mode !== 'production'
   };
