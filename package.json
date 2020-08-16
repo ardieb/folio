@@ -4,6 +4,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
+    "start:prod": "webpack-dev-server --mode production",
     "start:dev": "webpack-dev-server --mode development"
   },
   "devDependencies": {

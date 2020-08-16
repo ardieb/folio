@@ -28,10 +28,10 @@ impl Component for About {
                     </div>
                 </header>
                 <p>{
-                    "Welcome to my website! Seems normal right? \n\
-                    Under the hood, there's some really cool stuff going on. \n\
-                    Aside from the root About.html and .scss files, all the code is powered by rust \n\
-                    and the yew front end framework. This creates the foundation for a lightning fast webapp that runs\n
+                    "Welcome to my website! Seems normal right?
+                    Under the hood, there's some really cool stuff going on.
+                    Aside from the root index.html and *.scss files, all the code is powered by rust
+                    and the yew front end framework. This creates the foundation for a lightening fast webapp that runs
                     on webassembly code. "
                 }</p>
                 <p>{BLURB}</p>

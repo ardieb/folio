@@ -4,7 +4,8 @@ use yew::virtual_dom::VNode;
 use yew_router::switch::{Permissive};
 use yew_router::{prelude::*, Switch};
 
-use crate::components::about::About;
+use crate::views::about::About;
+use crate::views::projects::Projects;
 use crate::routes::AppRoute;
 
 pub struct App {}
@@ -41,7 +42,7 @@ impl Component for App {
                             match switch {
                                 AppRoute::About => html!{ <About /> },
                                 AppRoute::Cv => html!{ <></> },
-                                AppRoute::Projects => html!{ <></> },
+                                AppRoute::Projects => html!{ <Projects /> },
                                 AppRoute::NotFound(Permissive(None)) => html!{"Page Not Found"},
                                 AppRoute::NotFound(Permissive(Some(missed))) => html!{format!("Page '{}' not found", missed)},
                             }
