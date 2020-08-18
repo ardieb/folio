@@ -141,7 +141,7 @@ pub static EXPERIENCE: [Experience; 5] = [
             was deployed using AWS SAM and invoked a lambda function for providing computation results
             to the company database.
         ",
-        href: Some("hover.gg"),
+        href: Some("https://hover.gg"),
         start: "Sept, 2019",
         end: Some("May, 2020"),
     },
