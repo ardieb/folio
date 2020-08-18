@@ -1,5 +1,6 @@
 use log::*;
 use yew::prelude::*;
+
 use crate::data::models::Project;
 use crate::data::store::PROJECTS;
 
@@ -26,6 +27,25 @@ impl Component for Projects {
                         <h2>{"Personal Projects I've Developed"}</h2>
                     </div>
                 </header>
+                {PROJECTS.iter().map(|project: &Project| {
+                    html!{
+                        <div>
+                            <article className="jobs-container">
+                                <header>
+                                    {match project.href {
+                                        Some(link) => html!{<a href={link}><h4>{project.name}</h4></a>},
+                                        None => html!{<h4>{project.name}</h4>},
+                                    }}
+                                    <p className="daterange">{project.start}</p>
+                                </header>
+                                <div>
+                                    <p className="description">{project.desc}</p>
+                                </div>
+                            </article>
+                            <hr />
+                        </div>
+                    }
+                }).collect::<Html>()}
             </article>
         </>
         }

@@ -2,7 +2,7 @@ pub mod date {
     pub mod option {
         use chrono::NaiveDate;
         use serde::{self, Deserialize, Deserializer, Serializer};
-        use serde::de::Error;
+        
 
         pub fn serialize<S>(date: &Option<NaiveDate>, s: S) -> Result<S::Ok, S::Error>
             where S: Serializer {

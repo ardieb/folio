@@ -15,6 +15,7 @@ pub struct Experience<'a> {
 pub struct Education<'a> {
     pub school: &'a str,
     pub degree: &'a str,
+    pub gpa: &'a str,
     pub desc: &'a str,
     pub href: Option<&'a str>,
     pub start: &'a str,

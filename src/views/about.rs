@@ -27,21 +27,34 @@ impl Component for About {
                         <h2>{"About"}</h2>
                     </div>
                 </header>
-                <p>{
-                    "Welcome to my website! Seems normal right?
-                    Under the hood, there's some really cool stuff going on.
-                    Aside from the root index.html and *.scss files, all the code is powered by rust
-                    and the yew front end framework. This creates the foundation for a lightening fast webapp that runs
-                    on webassembly code. "
-                }</p>
-                <p>{BLURB}</p>
-            </article>
-            <article class="post" id="contact">
-                <header>
-                    <div class="title">
-                        <h2>{"Contact"}</h2>
-                    </div>
-                </header>
+                <article>
+                <h3>{"About This Site"}</h3>
+                    <p>{r"
+                        Welcome to my website. It's powered entirely by the yew frontend rust
+                        framework. There is no javascript or html code (aside from
+                        the webpack.config.js file and root index.html). It's all rust compiled
+                        down to web assembly. I believe web assembly projects will be increasingly
+                        prevalent in the web ecosystem and foresee many more web projects powered by
+                        rust or emscripten going forwards.
+                    "}</p>
+                </article>
+                <hr />
+                <article>
+                <h3>{"About Me"}</h3>
+                    <p>{r"
+                        I'm a full stack software engineer and physicist. My interests a pretty diverse;
+                        Most of my free time is spent cooking or weightlifting, occasionally gaming,
+                        and often writing code for personal projects. I am a senior at Cornell.
+                        Throughout my experience there, I have been drawn to a variety of people and
+                        activities; I am a member of the Cornell Political Union, a former member of
+                        the Engineers for a Sustainable World project team, and a former member of the
+                        CisLunar Satellite Mission project team. Some of my favourite Cornell courses have
+                        been History of the British Empire, Introduction to China, Applications of Quantum
+                        Mechanics, and Computer Networks and Design.
+                    "}</p>
+                </article>
+                <hr />
+                <h3>{"Contact Me"}</h3>
                 <div class="email-at">
                     <ul class="icons">
                         {CONTACTS.iter().map(|contact: &Contact| {
@@ -64,7 +77,7 @@ impl Component for About {
                         }).collect::<Html>()}
                     </ul>
                 </div>
-              </article>
+            </article>
         </>
         }
     }

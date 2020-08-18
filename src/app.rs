@@ -1,11 +1,13 @@
 use log::*;
 use yew::prelude::*;
-use yew::virtual_dom::VNode;
-use yew_router::switch::{Permissive};
-use yew_router::{prelude::*, Switch};
 
+use yew_router::switch::{Permissive};
+use yew_router::{prelude::*};
+
+use crate::views::cv::Cv;
 use crate::views::about::About;
 use crate::views::projects::Projects;
+
 use crate::routes::AppRoute;
 
 pub struct App {}
@@ -41,7 +43,7 @@ impl Component for App {
                         render = Router::render(|switch: AppRoute| {
                             match switch {
                                 AppRoute::About => html!{ <About /> },
-                                AppRoute::Cv => html!{ <></> },
+                                AppRoute::Cv => html!{ <Cv /> },
                                 AppRoute::Projects => html!{ <Projects /> },
                                 AppRoute::NotFound(Permissive(None)) => html!{"Page Not Found"},
                                 AppRoute::NotFound(Permissive(Some(missed))) => html!{format!("Page '{}' not found", missed)},
