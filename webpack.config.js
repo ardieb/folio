@@ -41,7 +41,11 @@ module.exports = (env, argv) => {
         crateDirectory: ".",
         extraArgs: "--no-typescript",
       }),
-      new HtmlWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        title: "Arthur Burke"
+      }),
     ],
     watch: argv.mode !== 'production'
   };
